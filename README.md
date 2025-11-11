@@ -31,14 +31,6 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * App completo: Consulta em Casa
- * Navegação interna por estado (sealed class Screen)
- * Usa TopAppBar (Material3) para compatibilidade
- * Compatível com Kotlin 1.9.10 / Compose 1.5.3
- */
-
-// --------------------- MODELOS ---------------------
 
 data class Paciente(
     val id: String = UUID.randomUUID().toString(),
@@ -63,7 +55,7 @@ data class ProntuarioEntrada(
     var texto: String
 )
 
-// --------------------- PERSISTÊNCIA ---------------------
+
 
 private const val PREFS = "consulta_em_casa_prefs"
 private const val KEY_PACIENTES = "pacientes"
@@ -139,7 +131,7 @@ object Repo {
     )
 }
 
-// --------------------- NAVEGAÇÃO SIMPLES ---------------------
+
 
 sealed class Screen {
     object Dashboard : Screen()
@@ -150,7 +142,7 @@ sealed class Screen {
     object NovoPaciente : Screen()
 }
 
-// --------------------- ACTIVITY ---------------------
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -160,7 +152,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// --------------------- APLICATIVO ---------------------
+
 
 @Composable
 fun App() {
@@ -232,7 +224,7 @@ fun App() {
     }
 }
 
-// --------------------- TELAS ---------------------
+
 
 @Composable
 fun Dashboard(
@@ -534,7 +526,6 @@ fun ProntuarioScreen(
     }
 }
 
-// --------------------- COMPONENTES AUX ---------------------
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
